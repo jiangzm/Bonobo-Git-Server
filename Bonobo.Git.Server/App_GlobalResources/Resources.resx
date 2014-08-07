@@ -723,4 +723,40 @@
   <data name="Source" xml:space="preserve">
     <value>Github</value>
   </data>
+  <data name="Repository_Layout_Clone" xml:space="preserve">
+    <value>Clone</value>
+  </data>
+  <data name="Repository_Clone_Success" xml:space="preserve">
+    <value>Repository was cloned successfully.</value>
+  </data>
+  <data name="Repository_Clone_Title" xml:space="preserve">
+    <value>Clone Repository</value>
+  </data>
+  <data name="Repository_Clone_Fail" xml:space="preserve">
+    <value>Repository cloning was unsuccessful. Please correct the errors and try again.</value>
+  </data>
+  <data name="Repository_Clone_Submit" xml:space="preserve">
+    <value>Clone</value>
+  </data>
+  <data name="Settings_Global_SiteFooterMessage" xml:space="preserve">
+    <value>Site Footer Message</value>
+  </data>
+  <data name="Settings_Global_SiteFooterMessage_Hint" xml:space="preserve">
+    <value>Message displayed in footer area of site pages.</value>
+  </data>
+  <data name="Settings_Global_SiteLogoUrl" xml:space="preserve">
+    <value>Site Logo URL</value>
+  </data>
+  <data name="Settings_Global_SiteLogoUrl_Hint" xml:space="preserve">
+    <value>URL to a logo to use for the site.  Site-relative (~) paths are supported.</value>
+  </data>
+  <data name="Settings_Global_SiteTitle" xml:space="preserve">
+    <value>Site Title</value>
+  </data>
+  <data name="Settings_Global_SiteTitle_Hint" xml:space="preserve">
+    <value>Title for this git site.</value>
+  </data>
+  <data name="Repository_Commit_NoMessageDeclared" xml:space="preserve">
+    <value>Not declared</value>
+  </data>
 </root>

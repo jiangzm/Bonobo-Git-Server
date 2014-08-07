@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 using Bonobo.Git.Server.App_GlobalResources;
 using LibGit2Sharp;
@@ -75,6 +73,7 @@ namespace Bonobo.Git.Server.Models
         [Display(ResourceType = typeof(Resources), Name = "Repository_Tree_Author")]
         public string Author { get; set; }
         public bool IsTree { get; set; }
+        public bool IsLink { get; set; }
         public string TreeName { get; set; }
         public bool IsImage { get; set; }
         public bool IsText { get; set; }
@@ -132,8 +131,28 @@ namespace Bonobo.Git.Server.Models
         [Display(ResourceType = typeof(Resources), Name = "Repository_Commit_Date")]
         public DateTime Date { get; set; }
 
+        private string _message;
         [Display(ResourceType = typeof(Resources), Name = "Repository_Commit_Message")]
-        public string Message { get; set; }
+
+        public string Message
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(_message))
+                {
+                    return Resources.Repository_Commit_NoMessageDeclared;
+                }
+
+                else
+                {
+                    return _message;
+                }
+            }
+            set
+            {
+                _message = value;
+            }
+        }
 
         [Display(ResourceType = typeof(Resources), Name = "Repository_Commit_Changes")]
         public IEnumerable<RepositoryCommitChangeModel> Changes { get; set; }

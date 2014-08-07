@@ -9,7 +9,7 @@
                 return @"
                     IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Repository'))
                     BEGIN
-                        CREATE TABLE [Repository] (
+                        CREATE TABLE [dbo].[Repository] (
                             [Name] VarChar(255) Not Null,
                             [GitName] VarChar(255) Not Null,
                             [Description] VarChar(255) Null,
@@ -20,7 +20,7 @@
 
                     IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Role'))
                     BEGIN
-                        CREATE TABLE [Role] (
+                        CREATE TABLE [dbo].[Role] (
                             [Name] VarChar(255) Not Null,
                             [Description] VarChar(255) Null,
                             Constraint [PK_Role] Primary Key ([Name])
@@ -29,7 +29,7 @@
 
                     IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'Team'))
                     BEGIN
-                        CREATE TABLE [Team] (
+                        CREATE TABLE [dbo].[Team] (
                             [Name] VarChar(255) Not Null,
                             [Description] VarChar(255) Null,
                             Constraint [PK_Team] Primary Key ([Name])
@@ -38,7 +38,7 @@
 
                     IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'User'))
                     BEGIN
-                        CREATE TABLE [User] (
+                        CREATE TABLE [dbo].[User] (
                             [Name] VarChar(255) Not Null,
                             [Surname] VarChar(255) Not Null,
                             [Username] VarChar(255) Not Null,
@@ -50,7 +50,7 @@
 
                     IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'TeamRepository_Permission'))
                     BEGIN
-                        CREATE TABLE [TeamRepository_Permission] (
+                        CREATE TABLE [dbo].[TeamRepository_Permission] (
                             [Team_Name] VarChar(255) Not Null,
                             [Repository_Name] VarChar(255) Not Null,
                             Constraint [UNQ_TeamRepository_Permission_1] Unique ([Team_Name], [Repository_Name]),
@@ -61,7 +61,7 @@
 
                     IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'UserRepository_Administrator'))
                     BEGIN
-                        CREATE TABLE [UserRepository_Administrator] (
+                        CREATE TABLE [dbo].[UserRepository_Administrator] (
                             [User_Username] VarChar(255) Not Null,
                             [Repository_Name] VarChar(255) Not Null,
                             Constraint [UNQ_UserRepository_Administrator_1] Unique ([User_Username], [Repository_Name]),
@@ -72,7 +72,7 @@
 
                     IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'UserRepository_Permission'))
                     BEGIN
-                        CREATE TABLE [UserRepository_Permission] (
+                        CREATE TABLE [dbo].[UserRepository_Permission] (
                             [User_Username] VarChar(255) Not Null,
                             [Repository_Name] VarChar(255) Not Null,
                             Constraint [UNQ_UserRepository_Permission_1] Unique ([User_Username], [Repository_Name]),
@@ -83,7 +83,7 @@
 
                     IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'UserRole_InRole'))
                     BEGIN
-                        CREATE TABLE [UserRole_InRole] (
+                        CREATE TABLE [dbo].[UserRole_InRole] (
                             [User_Username] VarChar(255) Not Null,
                             [Role_Name] VarChar(255) Not Null,
                             Constraint [UNQ_UserRole_InRole_1] Unique ([User_Username], [Role_Name]),
@@ -94,7 +94,7 @@
 
                     IF (NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND  TABLE_NAME = 'UserTeam_Member'))
                     BEGIN
-                        CREATE TABLE [UserTeam_Member] (
+                        CREATE TABLE [dbo].[UserTeam_Member] (
                             [User_Username] VarChar(255) Not Null,
                             [Team_Name] VarChar(255) Not Null,
                             Constraint [UNQ_UserTeam_Member_1] Unique ([User_Username], [Team_Name]),
