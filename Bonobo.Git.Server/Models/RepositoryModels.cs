@@ -10,16 +10,17 @@ namespace Bonobo.Git.Server.Models
     public class RepositoryModel
     {
         public string Name { get; set; }
-        public string GitName { get; set; }
         public string Description { get; set; }
         public bool AnonymousAccess { get; set; }
         public string[] Users { get; set; }
         public string[] Administrators { get; set; }
         public string[] Teams { get; set; }
+        public bool AuditPushUser { get; set; }
     }
 
     public class RepositoryDetailModel
     {
+        [RegularExpression("[a-zA-Z0-9-_]+", ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "Validation_FileName_Regex")]
         [FileName(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "Validation_FileName")]
         [StringLength(50, ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "Validation_StringLength")]
         [Display(ResourceType = typeof(Resources), Name = "Repository_Detail_Name")]
@@ -47,8 +48,8 @@ namespace Bonobo.Git.Server.Models
         [Display(ResourceType = typeof(Resources), Name = "Repository_Detail_Status")]
         public RepositoryDetailStatus Status { get; set; }
 
-        public string GitName { get; set; }
-
+        [Display(ResourceType = typeof(Resources), Name = "Repository_Detail_AuditPushUser")]
+        public bool AuditPushUser { get; set; }
     }
 
     public enum RepositoryDetailStatus
@@ -109,6 +110,19 @@ namespace Bonobo.Git.Server.Models
         public string Patch { get; set; }
     }
 
+    public class RepositoryCommitNoteModel
+    {
+        public RepositoryCommitNoteModel(string message, string @namespace)
+        {
+            this.Message = message;
+            this.Namespace = @namespace;
+        }
+
+        public string Message { get; set; }
+
+        public string Namespace { get; set; }
+    }
+
     public class RepositoryCommitModel
     {
         public string Name { get; set; }
@@ -156,6 +170,8 @@ namespace Bonobo.Git.Server.Models
 
         [Display(ResourceType = typeof(Resources), Name = "Repository_Commit_Changes")]
         public IEnumerable<RepositoryCommitChangeModel> Changes { get; set; }
+
+        public IEnumerable<RepositoryCommitNoteModel> Notes { get; set; }
 
     }
 }

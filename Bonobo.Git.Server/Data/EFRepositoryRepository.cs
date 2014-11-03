@@ -15,23 +15,23 @@ namespace Bonobo.Git.Server.Data
                 var dbrepos = db.Repositories.Select(repo => new
                 {
                     Name = repo.Name,
-                    GitName = repo.GitName,
                     Description = repo.Description,
                     AnonymousAccess = repo.Anonymous,
                     Users = repo.Users.Select(i => i.Username),
                     Teams = repo.Teams.Select(i => i.Name),
                     Administrators = repo.Administrators.Select(i => i.Username),
+                    AuditPushUser = repo.AuditPushUser,
                 }).ToList();
 
                 return dbrepos.Select(repo => new RepositoryModel
                 {
-                    Name=repo.Name,
-                    GitName = repo.GitName,
+                    Name = repo.Name,
                     Description = repo.Description,
                     AnonymousAccess = repo.AnonymousAccess,
                     Users = repo.Users.ToArray(),
                     Teams = repo.Teams.ToArray(),
                     Administrators = repo.Administrators.ToArray(),
+                    AuditPushUser = repo.AuditPushUser,
                 }).ToList();
             }
         }
@@ -93,9 +93,9 @@ namespace Bonobo.Git.Server.Data
                 var repository = new Repository
                 {
                     Name = model.Name,
-                    GitName = model.GitName ?? (model.Name + ".git"),
                     Description = model.Description,
                     Anonymous = model.AnonymousAccess,
+                    AuditPushUser = model.AuditPushUser,
                 };
                 database.Repositories.Add(repository);
                 AddMembers(model.Users, model.Administrators, model.Teams, repository, database);
@@ -124,6 +124,7 @@ namespace Bonobo.Git.Server.Data
                 {
                     repo.Description = model.Description;
                     repo.Anonymous = model.AnonymousAccess;
+                    repo.AuditPushUser = model.AuditPushUser;
 
                     repo.Users.Clear();
                     repo.Teams.Clear();
@@ -145,13 +146,13 @@ namespace Bonobo.Git.Server.Data
 
             return new RepositoryModel
             {
-                Name=item.Name,
-                GitName = item.GitName,
+                Name = item.Name,
                 Description = item.Description,
                 AnonymousAccess = item.Anonymous,
                 Users = item.Users.Select(i => i.Username).ToArray(),
                 Teams = item.Teams.Select(i => i.Name).ToArray(),
                 Administrators = item.Administrators.Select(i => i.Username).ToArray(),
+                AuditPushUser = item.AuditPushUser,
             };
         }
 

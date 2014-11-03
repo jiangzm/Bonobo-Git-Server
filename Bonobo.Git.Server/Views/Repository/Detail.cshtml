@@ -26,7 +26,7 @@
             </div>
             <div class="pure-control-group">
                 <label>@Resources.Repository_Detail_Location</label>
-                @String.Concat(serverAddress,"git/", Model.GitName)
+                @String.Concat(serverAddress, Model.Name, ".git")
             </div>
             <div class="pure-control-group">
                 @Html.LabelFor(m => m.Description)
@@ -35,6 +35,17 @@
             <div class="pure-control-group">
                 @Html.LabelFor(m => m.AllowAnonymous)
                 @if (Model.AllowAnonymous)
+                {
+                    @Resources.Repository_Detail_Yes
+                }
+                else
+                {
+                    @Resources.Repository_Detail_No
+                }
+            </div>
+            <div class="pure-control-group">
+                @Html.LabelFor(m => m.AuditPushUser)
+                @if (Model.AuditPushUser)
                 {
                     @Resources.Repository_Detail_Yes
                 }

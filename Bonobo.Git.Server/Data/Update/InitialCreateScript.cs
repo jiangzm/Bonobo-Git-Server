@@ -15,7 +15,6 @@ namespace Bonobo.Git.Server.Data.Update
 
                     CREATE TABLE IF NOT EXISTS [Repository] (
                         [Name] VarChar(255) Not Null,
-                        [GitName] VarChar(255) Not Null,
                         [Description] VarChar(255) Null,
                         [Anonymous] Bit Not Null,
                         Constraint [PK_Repository] Primary Key ([Name])
@@ -81,7 +80,7 @@ namespace Bonobo.Git.Server.Data.Update
                         Foreign Key ([User_Username]) References [User]([Username]),
                         Foreign Key ([Team_Name]) References [Team]([Name])
                     );
-                  
+
                     ";
             }
         }
