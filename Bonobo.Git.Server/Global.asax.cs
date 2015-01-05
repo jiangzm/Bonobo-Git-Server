@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Threading;
@@ -14,20 +16,21 @@ using Bonobo.Git.Server.Configuration;
 using Bonobo.Git.Server.Controllers;
 using Bonobo.Git.Server.Data;
 using Bonobo.Git.Server.Data.Update;
+using Bonobo.Git.Server.Git;
+using Bonobo.Git.Server.Git.GitService;
+using Bonobo.Git.Server.Git.GitService.ReceivePackHook;
+using Bonobo.Git.Server.Git.GitService.ReceivePackHook.Durability;
+using Bonobo.Git.Server.Git.GitService.ReceivePackHook.Hooks;
 using Bonobo.Git.Server.Security;
 using Microsoft.Practices.Unity;
-using Bonobo.Git.Server.Git.GitService;
-using System.Configuration;
-using System.IO;
-using Bonobo.Git.Server.Git;
-using Bonobo.Git.Server.Git.GitService.ReceivePackHook;
-using Bonobo.Git.Server.Git.GitService.ReceivePackHook.Hooks;
-using Bonobo.Git.Server.Git.GitService.ReceivePackHook.Durability;
+using System.Runtime.Caching;
 
 namespace Bonobo.Git.Server
 {
     public class MvcApplication : HttpApplication
     {
+        public static ObjectCache Cache = MemoryCache.Default; 
+
         protected void Application_AcquireRequestState(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session == null)
@@ -123,8 +126,7 @@ namespace Bonobo.Git.Server
 
         private static void RegisterDependencyResolver()
         {
-            var container = new UnityContainer()
-                                .AddExtension(new UnityDecoratorContainerExtension());
+            var container = new UnityContainer().AddExtension(new UnityDecoratorContainerExtension());
 
             container.RegisterType<IMembershipService, EFMembershipService>();
             container.RegisterType<IRepositoryPermissionService, EFRepositoryPermissionService>();
@@ -138,14 +140,32 @@ namespace Bonobo.Git.Server
                 })
             );
                 
-            container.RegisterInstance(new GitServiceExecutorParams()
-            {
-                GitPath = Path.IsPathRooted(ConfigurationManager.AppSettings["GitPath"])
-                    ? ConfigurationManager.AppSettings["GitPath"]
-                    : HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["GitPath"]),
-                RepositoriesDirPath = UserConfiguration.Current.Repositories,
-            });
+            container.RegisterInstance(
+                new GitServiceExecutorParams()
+                {
+                    GitPath = GetRootPath(ConfigurationManager.AppSettings["GitPath"]),
+                    GitHomePath = GetRootPath(ConfigurationManager.AppSettings["GitHomePath"]),
+                    RepositoriesDirPath = UserConfiguration.Current.Repositories,
+                });
 
+            if (AppSettings.IsPushAuditEnabled)
+            {
+                EnablePushAuditAnalysis(container);
+            }
+
+            container.RegisterType<IGitService, GitServiceExecutor>();
+
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+
+            var oldProvider = FilterProviders.Providers.Single(f => f is FilterAttributeFilterProvider);
+            FilterProviders.Providers.Remove(oldProvider);
+            
+            var provider = new UnityFilterAttributeFilterProvider(container);
+            FilterProviders.Providers.Add(provider);
+        }
+
+        private static void EnablePushAuditAnalysis(IUnityContainer container)
+        {
             var isReceivePackRecoveryProcessEnabled = !string.IsNullOrEmpty(ConfigurationManager.AppSettings["RecoveryDataPath"]);
 
             if (isReceivePackRecoveryProcessEnabled)
@@ -156,42 +176,37 @@ namespace Bonobo.Git.Server
                 container.RegisterType<IRecoveryFilePathBuilder, AutoCreateMissingRecoveryDirectories>();
                 container.RegisterType<IRecoveryFilePathBuilder, OneFolderRecoveryFilePathBuilder>();
                 container.RegisterInstance(new NamedArguments.FailedPackWaitTimeBeforeExecution(TimeSpan.FromSeconds(5 * 60)));
+                
                 container.RegisterInstance(new NamedArguments.ReceivePackRecoveryDirectory(
-                    Path.IsPathRooted(ConfigurationManager.AppSettings["RecoveryDataPath"])
-                            ? ConfigurationManager.AppSettings["RecoveryDataPath"]
-                            : HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["RecoveryDataPath"])));
+                    Path.IsPathRooted(ConfigurationManager.AppSettings["RecoveryDataPath"]) ?
+                        ConfigurationManager.AppSettings["RecoveryDataPath"] :
+                        HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["RecoveryDataPath"])));
             }
 
             // base git service executor
             container.RegisterType<IGitService, ReceivePackParser>();
-            container.RegisterType<IGitService, GitServiceExecutor>();
             container.RegisterType<GitServiceResultParser, GitServiceResultParser>();
 
             // receive pack hooks
             container.RegisterType<IHookReceivePack, AuditPusherToGitNotes>();
             container.RegisterType<IHookReceivePack, NullReceivePackHook>();
 
-
-
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
-
-            var oldProvider = FilterProviders.Providers.Single(f => f is FilterAttributeFilterProvider);
-            FilterProviders.Providers.Remove(oldProvider);
-            var provider = new UnityFilterAttributeFilterProvider(container);
-            FilterProviders.Providers.Add(provider);
-
             // run receive-pack recovery if possible
             if (isReceivePackRecoveryProcessEnabled)
             {
-                var recoveryProcess = container.Resolve<ReceivePackRecovery>(new ParameterOverride(
+                var recoveryProcess = container.Resolve<ReceivePackRecovery>(
+                    new ParameterOverride(
                         "failedPackWaitTimeBeforeExecution",
                         new NamedArguments.FailedPackWaitTimeBeforeExecution(TimeSpan.FromSeconds(0)))); // on start up set time to wait = 0 so that recovery for all waiting packs is attempted
 
                 try
-                {                    
+                {
                     recoveryProcess.RecoverAll();
                 }
-                catch { /* don't let a failed recovery attempt stop start-up process */  }
+                catch
+                {
+                    // don't let a failed recovery attempt stop start-up process
+                }
                 finally
                 {
                     if (recoveryProcess != null)
@@ -280,6 +295,13 @@ namespace Bonobo.Git.Server
             context.Request.Cookies.Remove(name);
 
             return null;
+        }
+
+        private static string GetRootPath(string path)
+        {
+            return Path.IsPathRooted(path) ?
+                path :
+                HttpContext.Current.Server.MapPath(path);
         }
     }
 }

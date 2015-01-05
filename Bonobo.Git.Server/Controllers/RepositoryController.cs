@@ -195,13 +195,22 @@ namespace Bonobo.Git.Server.Controllers
             {
                 string referenceName;
                 var files = browser.BrowseTree(name, path, out referenceName, includeDetails);
-
+                
+                var readme = files.Where(x => x.Path.Equals("readme.md", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                string readmeTxt = string.Empty;
+                if (readme != null)
+                {
+                    string refereceName;
+                    var blob = browser.BrowseBlob(name, readme.Path, out refereceName);
+                    readmeTxt = blob.Text;
+                }
                 var model = new RepositoryTreeModel
                 {
                     Name = id,
                     Branch = name,
                     Path = path,
-                    Files = files.OrderByDescending(i => i.IsTree).ThenBy(i => i.Name),
+                    Files = files.OrderByDescending(i => i.IsTree).ThenBy(i => i.Name), 
+                    Readme = readmeTxt
                 };
 
                 if (includeDetails)
@@ -266,6 +275,27 @@ namespace Bonobo.Git.Server.Controllers
                 }
             }
 
+            return HttpNotFound();
+        }
+
+        [WebAuthorizeRepository]
+        public ActionResult Blame(string id, string encodedName, string encodedPath)
+        {
+            ViewBag.ID = id;
+            if (!String.IsNullOrEmpty(id))
+            {
+                using (var browser = new RepositoryBrowser(Path.Combine(UserConfiguration.Current.Repositories, id)))
+                {
+                    var name = PathEncoder.Decode(encodedName);
+                    var path = PathEncoder.Decode(encodedPath);
+                    string referenceName;
+                    var model = browser.GetBlame(name, path, out referenceName);
+                    PopulateBranchesData(browser, referenceName);
+                    PopulateAddressBarData(path);
+
+                    return View(model);
+                }
+            }
             return HttpNotFound();
         }
 
@@ -433,6 +463,25 @@ namespace Bonobo.Git.Server.Controllers
             ViewBag.ID = id;
             PopulateEditData();
             return View(model);
+        }
+
+        [WebAuthorizeRepository]
+        public ActionResult History(string id, string encodedPath, string encodedName)
+        {
+            ViewBag.ID = id;
+            if (!String.IsNullOrEmpty(id))
+            {
+                using (var browser = new RepositoryBrowser(Path.Combine(UserConfiguration.Current.Repositories, id)))
+                {
+                    var path = PathEncoder.Decode(encodedPath);
+                    var name = PathEncoder.Decode(encodedName);
+                    string referenceName;
+                    var commits = browser.GetHistory(path, name, out referenceName);
+                    return View(new RepositoryCommitsModel { Commits = commits, Name = id });
+                }
+            }
+
+            return View();
         }
 
         private void PopulateAddressBarData(string path)

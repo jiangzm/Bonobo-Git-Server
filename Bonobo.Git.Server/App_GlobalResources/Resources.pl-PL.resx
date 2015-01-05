@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,287 +117,386 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Account_Create_AccountAlreadyExists" xml:space="preserve">
+    <value>Konto o tej nazwie już istnieje</value>
+  </data>
+  <data name="Account_Create_AccountInformation" xml:space="preserve">
+    <value>Informacje o koncie</value>
+  </data>
+  <data name="Account_Create_ConfirmPassword" xml:space="preserve">
+    <value>Potwierdź hasło</value>
+  </data>
+  <data name="Account_Create_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Account_Create_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="Account_Create_Password" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
+  <data name="Account_Create_Submit" xml:space="preserve">
+    <value>Utwórz</value>
+  </data>
+  <data name="Account_Create_Success" xml:space="preserve">
+    <value>Konto zostało pomyślnie utworzone</value>
+  </data>
+  <data name="Account_Create_Surname" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="Account_Create_Title" xml:space="preserve">
+    <value>Utwórz nowe konto</value>
+  </data>
+  <data name="Account_Create_Unsuccessfull" xml:space="preserve">
+    <value>Nie udało się utworzyć konta. Popraw błędy i spróbuj ponownie.</value>
+  </data>
+  <data name="Account_Create_Username" xml:space="preserve">
+    <value>Nazwa użytkownika</value>
+  </data>
   <data name="Account_Delete_DeleteCurrentUser" xml:space="preserve">
-    <value>You can't delete yourself.</value>
+    <value>Nie można usuwać samego siebie</value>
   </data>
   <data name="Account_Delete_Success" xml:space="preserve">
-    <value>The user was deleted.</value>
+    <value>Użytkownik został usunięty</value>
   </data>
   <data name="Account_Detail_Back" xml:space="preserve">
-    <value>Back</value>
+    <value>Wstecz</value>
   </data>
   <data name="Account_Detail_Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Usuń</value>
   </data>
   <data name="Account_Detail_Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Edytuj</value>
   </data>
   <data name="Account_Detail_Email" xml:space="preserve">
-    <value>Email</value>
+    <value>E-mail</value>
   </data>
   <data name="Account_Detail_Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Nazwa</value>
   </data>
   <data name="Account_Detail_Roles" xml:space="preserve">
-    <value>Roles</value>
+    <value>Role</value>
   </data>
   <data name="Account_Detail_Surname" xml:space="preserve">
-    <value>Surname</value>
+    <value>Nazwisko</value>
   </data>
   <data name="Account_Detail_Title" xml:space="preserve">
-    <value>User Detail</value>
+    <value>Szczegóły użytkownika</value>
   </data>
   <data name="Account_Detail_Username" xml:space="preserve">
-    <value>Username</value>
+    <value>Nazwa użytkownika</value>
   </data>
   <data name="Account_Edit_Back" xml:space="preserve">
-    <value>Back</value>
+    <value>Wstecz</value>
   </data>
   <data name="Account_Edit_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Anuluj</value>
   </data>
   <data name="Account_Edit_CannotRemoveYourselfFromAdminRole" xml:space="preserve">
-    <value>Can't remove yourself from administrators.</value>
+    <value>Nie można odebrać praw administratora samemu sobie</value>
   </data>
   <data name="Account_Edit_ConfirmPassword" xml:space="preserve">
-    <value>Confirm Password</value>
+    <value>Potwierdź hasło</value>
   </data>
   <data name="Account_Edit_CurrentPassword" xml:space="preserve">
-    <value>Current Password</value>
+    <value>Obecne hasło</value>
   </data>
   <data name="Account_Edit_Email" xml:space="preserve">
-    <value>Email</value>
+    <value>E-mail</value>
   </data>
   <data name="Account_Edit_Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Nazwa</value>
   </data>
   <data name="Account_Edit_NewPassword" xml:space="preserve">
-    <value>New Password</value>
+    <value>Nowe hasło</value>
   </data>
   <data name="Account_Edit_OldPasswordEmpty" xml:space="preserve">
-    <value>Current password should not be empty.</value>
+    <value>Obecne hasło nie powinno być puste.</value>
   </data>
   <data name="Account_Edit_OldPasswordIncorrect" xml:space="preserve">
-    <value>Password does not match the current password.</value>
+    <value>Wpisane obecne hasło nie jest poprawne.</value>
   </data>
   <data name="Account_Edit_Roles" xml:space="preserve">
-    <value>Roles</value>
+    <value>Role</value>
+  </data>
+  <data name="Account_Edit_RolesHint" xml:space="preserve">
+    <value>Administratorzy mają dostęp do wszystkich repozytoriów i uprawnienia do wykonywania wszystkich operacji na repozytoriach, zespołach i użytkownikach.</value>
   </data>
   <data name="Account_Edit_Submit" xml:space="preserve">
-    <value>Save</value>
+    <value>Zapisz</value>
   </data>
   <data name="Account_Edit_Surname" xml:space="preserve">
-    <value>Surname</value>
+    <value>Nazwisko</value>
   </data>
   <data name="Account_Edit_Title" xml:space="preserve">
-    <value>Edit User Account</value>
+    <value>Edytuj konto użytkownika</value>
   </data>
   <data name="Account_Edit_Unsuccessfull" xml:space="preserve">
-    <value>Account edit was unsuccessful. Please correct the errors and try again.</value>
+    <value>Edycja konta nie powiodła się. Popraw błędy i spróbuj ponownie.</value>
   </data>
   <data name="Account_Edit_UpdateSuccess" xml:space="preserve">
-    <value>The account was updated successfully.</value>
+    <value>Konto zostało pomyślnie zaktualizowane.</value>
+  </data>
+  <data name="Account_Index_Create" xml:space="preserve">
+    <value>Utwórz nowego użytkownika</value>
   </data>
   <data name="Account_Index_Title" xml:space="preserve">
-    <value>Users</value>
+    <value>Użytkownicy</value>
+  </data>
+  <data name="Account_Index_Users" xml:space="preserve">
+    <value>Użytkownicy</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Zatwierdź</value>
+  </data>
+  <data name="Delete_Back" xml:space="preserve">
+    <value>Wstecz</value>
+  </data>
+  <data name="Delete_Confirm" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Delete_ConfirmationText" xml:space="preserve">
+    <value>Czy na pewno chcesz usunąć {0}?</value>
+  </data>
+  <data name="Delete_Title" xml:space="preserve">
+    <value>Potwierdzenie usunięcia</value>
   </data>
   <data name="Grid_Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Usuń</value>
   </data>
   <data name="Grid_Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Edytuj</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Oficjalna strona</value>
   </data>
   <data name="Home_Error_Text" xml:space="preserve">
-    <value>An error occurred when processing your request. Please try again or contact the system administrator.</value>
+    <value>W trakcie przetwarzania zapytania wystąpił błąd. Spróbuj ponownie lub skontaktuj się z administratorem systemu.</value>
   </data>
   <data name="Home_Error_Title" xml:space="preserve">
-    <value>An Error Occurred</value>
+    <value>Wystąpił błąd</value>
   </data>
   <data name="Home_LogOn_AccountInformation" xml:space="preserve">
-    <value>Account Information</value>
+    <value>Informacje o koncie</value>
   </data>
   <data name="Home_LogOn_Failed" xml:space="preserve">
-    <value>Login was unsuccessful. Please correct the errors and try again.</value>
+    <value>Logowanie nie powiodło się. Popraw błędy i spróbuj ponownie.</value>
   </data>
   <data name="Home_LogOn_LogOn" xml:space="preserve">
-    <value>Sign In</value>
+    <value>Zaloguj się</value>
   </data>
   <data name="Home_LogOn_Password" xml:space="preserve">
-    <value>Password</value>
+    <value>Hasło</value>
   </data>
   <data name="Home_LogOn_RememberMe" xml:space="preserve">
-    <value>Remember me?</value>
+    <value>Zapamiętaj mnie</value>
   </data>
   <data name="Home_LogOn_Title" xml:space="preserve">
-    <value>Sign In</value>
+    <value>Zaloguj się</value>
   </data>
   <data name="Home_LogOn_Username" xml:space="preserve">
-    <value>Username</value>
+    <value>Nazwa użytkownika</value>
   </data>
   <data name="Home_LogOn_UsernamePasswordIncorrect" xml:space="preserve">
-    <value>The username or password provided is incorrect.</value>
+    <value>Niepoprawna nazwa użytkownika lub hasło</value>
   </data>
   <data name="Home_PageNotFound_Text" xml:space="preserve">
-    <value>The page you were looking for wasn't found. Please try again or contact the system administrator.</value>
+    <value>Nie znaleziono żądanej strony. Spróbuj ponownie lub skontaktuj się z administratorem systemu.</value>
   </data>
   <data name="Home_PageNotFound_Title" xml:space="preserve">
-    <value>404 Page Not Found</value>
+    <value>404 Nie znaleziono strony</value>
   </data>
   <data name="Home_ServerError_Text" xml:space="preserve">
-    <value>A server error occurred when processing your request. Please try again or contact the system administrator.</value>
+    <value>W trakcie przetwarzania zapytania wystąpił błąd serwera. Spróbuj ponownie lub skontaktuj się z administratorem systemu.</value>
   </data>
   <data name="Home_ServerError_Title" xml:space="preserve">
-    <value>500 Server Error</value>
+    <value>500 Błąd serwera</value>
   </data>
   <data name="Home_Unauthorized_Text" xml:space="preserve">
-    <value>You don't have permission for the selected action or page.</value>
+    <value>Nie masz uprawnień do wybranej czynności lub strony</value>
   </data>
   <data name="Home_Unauthorized_Title" xml:space="preserve">
-    <value>Unauthorized</value>
+    <value>Brak uprawnień</value>
   </data>
   <data name="Item_NotFound" xml:space="preserve">
-    <value>Item wasn't found</value>
+    <value>Nie znaleziono obiektu</value>
+  </data>
+  <data name="Item_NotFound_Text" xml:space="preserve">
+    <value>Nie znaleziono żądanego obiektu.</value>
   </data>
   <data name="Layout_About" xml:space="preserve">
-    <value>About</value>
+    <value>Informacje</value>
   </data>
   <data name="Layout_AccountSettings" xml:space="preserve">
-    <value>Account Settings</value>
+    <value>Ustawienia konta</value>
   </data>
   <data name="Layout_Administration" xml:space="preserve">
-    <value>Administration</value>
+    <value>Administracja</value>
   </data>
   <data name="Layout_AdministrationGlobalSettings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Ustawienia</value>
   </data>
   <data name="Layout_AdministrationRepositories" xml:space="preserve">
-    <value>Repositories</value>
+    <value>Repozytoria</value>
   </data>
   <data name="Layout_AdministrationTeams" xml:space="preserve">
-    <value>Teams</value>
+    <value>Zespoły</value>
   </data>
   <data name="Layout_AdministrationUsers" xml:space="preserve">
-    <value>Users</value>
+    <value>Użytkownicy</value>
   </data>
   <data name="Layout_Footer_Copyright" xml:space="preserve">
-    <value>All rights reserved.</value>
+    <value>Wszelkie prawa zastrzeżone.</value>
   </data>
   <data name="Layout_Home" xml:space="preserve">
-    <value>Home</value>
+    <value>Strona główna</value>
   </data>
   <data name="Layout_LogOff" xml:space="preserve">
-    <value>Sign Out</value>
+    <value>Wyloguj</value>
   </data>
   <data name="Layout_LogOn" xml:space="preserve">
-    <value>Sign In</value>
+    <value>Zaloguj</value>
   </data>
   <data name="Layout_Register" xml:space="preserve">
-    <value>Register</value>
+    <value>Zarejestruj się</value>
   </data>
   <data name="Layout_Repositories" xml:space="preserve">
-    <value>Repositories</value>
+    <value>Repozytoria</value>
   </data>
   <data name="Layout_Title" xml:space="preserve">
     <value>Bonobo Git Server</value>
   </data>
   <data name="Repository_AddressBar_Root" xml:space="preserve">
-    <value>Home</value>
+    <value>Strona główna</value>
+  </data>
+  <data name="Repository_AdministratorsHint" xml:space="preserve">
+    <value>Administratorzy mają pełny dostęp do repozytorium. Mogą modyfikować jego metadane lub je usunąć.</value>
+  </data>
+  <data name="Repository_AllowAnonymousHint" xml:space="preserve">
+    <value>Jeśli anonimowy dostęp jest włączony, każdy może pobierać dane z repozytorium lub je klonować oraz przeglądać jego metadane. Wgrywanie danych do repozytorium jest możliwe wyłącznie, jeśli zostało włączone w globalnych ustawieniach.</value>
+  </data>
+  <data name="Repository_AuditPushUserHint" xml:space="preserve">
+    <value>Zapisuj dane o tym, kto wgrał commity na serwer.</value>
+  </data>
+  <data name="Repository_Back" xml:space="preserve">
+    <value>Wstecz</value>
+  </data>
+  <data name="Repository_Clone_Fail" xml:space="preserve">
+    <value>Klonowanie repozytorium nie powiodło się. Popraw błędy i spróbuj ponownie.</value>
+  </data>
+  <data name="Repository_Clone_Submit" xml:space="preserve">
+    <value>Klonuj</value>
+  </data>
+  <data name="Repository_Clone_Success" xml:space="preserve">
+    <value>Klonowanie zakończone sukcesem.</value>
+  </data>
+  <data name="Repository_Clone_Title" xml:space="preserve">
+    <value>Klonuj repozytorium</value>
   </data>
   <data name="Repository_Commits_Title" xml:space="preserve">
-    <value>Commits</value>
+    <value>Commity</value>
   </data>
   <data name="Repository_Commit_Added" xml:space="preserve">
-    <value>Added</value>
+    <value>Dodano</value>
   </data>
   <data name="Repository_Commit_Author" xml:space="preserve">
-    <value>Author</value>
+    <value>Autor</value>
   </data>
   <data name="Repository_Commit_AuthorEmail" xml:space="preserve">
-    <value>Email</value>
+    <value>E-mail</value>
   </data>
   <data name="Repository_Commit_Changes" xml:space="preserve">
-    <value>Changes</value>
+    <value>Zmiany</value>
   </data>
   <data name="Repository_Commit_Copied" xml:space="preserve">
-    <value>Copied</value>
+    <value>Skopiowane</value>
   </data>
   <data name="Repository_Commit_Date" xml:space="preserve">
-    <value>Date</value>
+    <value>Data</value>
   </data>
   <data name="Repository_Commit_Deleted" xml:space="preserve">
-    <value>Deleted</value>
+    <value>Usunięte</value>
   </data>
   <data name="Repository_Commit_Detail" xml:space="preserve">
-    <value>Commit Detail</value>
+    <value>Szczegóły commita</value>
+  </data>
+  <data name="Repository_Commit_Details" xml:space="preserve">
+    <value>Szczegóły</value>
   </data>
   <data name="Repository_Commit_ID" xml:space="preserve">
     <value>Commit</value>
   </data>
   <data name="Repository_Commit_Message" xml:space="preserve">
-    <value>Message</value>
+    <value>Wiadomość</value>
   </data>
   <data name="Repository_Commit_Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>Zmodyfikowane</value>
+  </data>
+  <data name="Repository_Commit_NoMessageDeclared" xml:space="preserve">
+    <value>Brak wiadomości</value>
   </data>
   <data name="Repository_Commit_Parents" xml:space="preserve">
-    <value>Parents</value>
+    <value>Commity bazowe</value>
   </data>
   <data name="Repository_Commit_Renamed" xml:space="preserve">
-    <value>Renamed</value>
+    <value>Zmienione nazwy</value>
   </data>
   <data name="Repository_Commit_TreeID" xml:space="preserve">
-    <value>Tree</value>
+    <value>Drzewo</value>
   </data>
   <data name="Repository_Commit_TypeChanged" xml:space="preserve">
-    <value>Type Changed</value>
-  </data>
-  <data name="Repository_Back" xml:space="preserve">
-    <value>Back</value>
+    <value>Zmieniony typ</value>
   </data>
   <data name="Repository_Create_DirectoryExists" xml:space="preserve">
-    <value>A directory with this name already exists in your repository folder. Delete this directory or choose another name and try again.</value>
+    <value>Katalog o tej nazwie już istnieje w folderze repozytorium. Usuń ten katalog lub wybierz inną nazwę i spróbuj ponownie.</value>
   </data>
   <data name="Repository_Create_Fail" xml:space="preserve">
-    <value>Repository creation was unsuccessful. Please correct the errors and try again.</value>
+    <value>Nie udało się utworzyć repozytorium. Popraw błędy i spróbuj ponownie.</value>
   </data>
   <data name="Repository_Create_Failure" xml:space="preserve">
-    <value>Repository with selected name already exists.</value>
+    <value>Repozytorium o tej nazwie już istnieje.</value>
   </data>
   <data name="Repository_Create_Informations" xml:space="preserve">
-    <value>Repository information</value>
+    <value>Informacje o repozytorium</value>
+  </data>
+  <data name="Repository_Create_NameFailure" xml:space="preserve">
+    <value>"Nazwa" nie powinna składać się wyłącznie z odstępów.</value>
   </data>
   <data name="Repository_Create_Submit" xml:space="preserve">
-    <value>Create</value>
+    <value>Utwórz</value>
   </data>
   <data name="Repository_Create_Success" xml:space="preserve">
-    <value>Repository was created successfully.</value>
+    <value>Repozytorium utworzone pomyślnie.</value>
   </data>
   <data name="Repository_Create_Title" xml:space="preserve">
-    <value>Create New Repository</value>
+    <value>Utwórz nowe repozytorium</value>
   </data>
   <data name="Repository_Delete_Success" xml:space="preserve">
-    <value>Repository was deleted successfully.</value>
+    <value>Pomyślnie usunięto repozytorium.</value>
   </data>
   <data name="Repository_Detail_Administrators" xml:space="preserve">
-    <value>Administrators</value>
+    <value>Administratorzy</value>
   </data>
   <data name="Repository_Detail_Anonymous" xml:space="preserve">
-    <value>Anonymous</value>
+    <value>Anonimowe</value>
+  </data>
+  <data name="Repository_Detail_AuditPushUser" xml:space="preserve">
+    <value>Loguj wgrywanie danych</value>
   </data>
   <data name="Repository_Detail_Back" xml:space="preserve">
-    <value>Back</value>
+    <value>Wstecz</value>
   </data>
   <data name="Repository_Detail_Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Usuń</value>
   </data>
   <data name="Repository_Detail_Description" xml:space="preserve">
-    <value>Description</value>
+    <value>Opis</value>
   </data>
   <data name="Repository_Detail_Detail" xml:space="preserve">
-    <value>Details</value>
+    <value>Szczegóły</value>
   </data>
   <data name="Repository_Detail_Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Edytuj</value>
   </data>
   <data name="Repository_Detail_IsCurrentUserAdmin" xml:space="preserve">
     <value>Admin</value>
@@ -406,440 +505,267 @@
     <value>Url</value>
   </data>
   <data name="Repository_Detail_Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Nazwa</value>
   </data>
   <data name="Repository_Detail_No" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="Repository_Detail_Teams" xml:space="preserve">
-    <value>Teams</value>
-  </data>
-  <data name="Repository_Detail_Title" xml:space="preserve">
-    <value>Repository Detail</value>
-  </data>
-  <data name="Repository_Detail_Users" xml:space="preserve">
-    <value>Contributors</value>
-  </data>
-  <data name="Repository_Detail_Yes" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="Repository_Edit_Back" xml:space="preserve">
-    <value>Back</value>
-  </data>
-  <data name="Repository_Edit_CantRemoveYourself" xml:space="preserve">
-    <value>You can't remove yourself from administrators.</value>
-  </data>
-  <data name="Repository_Edit_Fail" xml:space="preserve">
-    <value>Repository update was unsuccessful. Please correct the errors and try again.</value>
-  </data>
-  <data name="Repository_Edit_Submit" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Repository_Edit_Title" xml:space="preserve">
-    <value>Edit Repository</value>
-  </data>
-  <data name="Repository_Edit_UpdateSuccess" xml:space="preserve">
-    <value>Repository was updated successfully.</value>
-  </data>
-  <data name="Repository_Index_AdministratedRepositories" xml:space="preserve">
-    <value>Administered Repositories</value>
-  </data>
-  <data name="Repository_Index_AllRepositories" xml:space="preserve">
-    <value>All Repositories</value>
-  </data>
-  <data name="Repository_Index_CreateNew" xml:space="preserve">
-    <value>Create new repository</value>
-  </data>
-  <data name="Repository_Index_No" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="Repository_Index_Repositories" xml:space="preserve">
-    <value>Repositories</value>
-  </data>
-  <data name="Repository_Index_Title" xml:space="preserve">
-    <value>Repositories</value>
-  </data>
-  <data name="Repository_Index_Yes" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="Repository_Layout_Browse" xml:space="preserve">
-    <value>Repository Browser</value>
-  </data>
-  <data name="Repository_Layout_Commits" xml:space="preserve">
-    <value>Commits</value>
-  </data>
-  <data name="Repository_SwitchBranch" xml:space="preserve">
-    <value>Switch current branch</value>
-  </data>
-  <data name="Repository_Tree_Author" xml:space="preserve">
-    <value>Author</value>
-  </data>
-  <data name="Repository_Tree_CommitDate" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="Repository_Tree_CommitMessage" xml:space="preserve">
-    <value>Message</value>
-  </data>
-  <data name="Repository_Tree_Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Repository_Tree_Title" xml:space="preserve">
-    <value>Browse Repository</value>
-  </data>
-  <data name="Settings_Global_AllowAnonymousPush" xml:space="preserve">
-    <value>Allow push for anonymous repositories</value>
-  </data>
-  <data name="Settings_Global_RepositoryPath" xml:space="preserve">
-    <value>Repository Directory</value>
-  </data>
-  <data name="Settings_Index_Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Settings_Index_Title" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="Settings_Index_UpdateSuccess" xml:space="preserve">
-    <value>Settings updated successfully.</value>
-  </data>
-  <data name="Settings_RepositoryPathNotExists" xml:space="preserve">
-    <value>Selected path does not exist. Please create the folder or choose a different one.</value>
-  </data>
-  <data name="Settings_RepositoryPathUnauthorized" xml:space="preserve">
-    <value>You don't have privileges to write to the folder. Please choose a different one.</value>
-  </data>
-  <data name="Team_Create_Back" xml:space="preserve">
-    <value>Back</value>
-  </data>
-  <data name="Team_Create_Fail" xml:space="preserve">
-    <value>New team creation was unsuccessful. Please correct the errors and try again.</value>
-  </data>
-  <data name="Team_Create_Failure" xml:space="preserve">
-    <value>Team with selected name already exists. Team wasn't created.</value>
-  </data>
-  <data name="Team_Create_Submit" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Team_Create_Success" xml:space="preserve">
-    <value>The team was created successfully.</value>
-  </data>
-  <data name="Team_Create_TeamInformations" xml:space="preserve">
-    <value>Team information</value>
-  </data>
-  <data name="Team_Create_Title" xml:space="preserve">
-    <value>Create New Team</value>
-  </data>
-  <data name="Team_Delete_Success" xml:space="preserve">
-    <value>The team was deleted.</value>
-  </data>
-  <data name="Team_Detail_Back" xml:space="preserve">
-    <value>Back</value>
-  </data>
-  <data name="Team_Detail_Delete" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="Team_Detail_Description" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="Team_Detail_Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="Team_Detail_Members" xml:space="preserve">
-    <value>Members</value>
-  </data>
-  <data name="Team_Detail_Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Team_Detail_Repositories" xml:space="preserve">
-    <value>Repositories</value>
-  </data>
-  <data name="Team_Detail_Title" xml:space="preserve">
-    <value>Team Detail</value>
-  </data>
-  <data name="Team_Edit_Back" xml:space="preserve">
-    <value>Back</value>
-  </data>
-  <data name="Team_Edit_Failure" xml:space="preserve">
-    <value>Team update was unsuccessful. Please correct the errors and try again.</value>
-  </data>
-  <data name="Team_Edit_Submit" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="Team_Edit_Title" xml:space="preserve">
-    <value>Edit Team</value>
-  </data>
-  <data name="Team_Edit_UpdateSuccess" xml:space="preserve">
-    <value>Team was updated successfully.</value>
-  </data>
-  <data name="Team_Index_CreateNew" xml:space="preserve">
-    <value>Create new team</value>
-  </data>
-  <data name="Team_Index_Title" xml:space="preserve">
-    <value>Teams</value>
-  </data>
-  <data name="Validation_Compare" xml:space="preserve">
-    <value>"{0}" and "{1}" must have the same value.</value>
-  </data>
-  <data name="Validation_Email" xml:space="preserve">
-    <value>"{0}" is not a valid email address.</value>
-  </data>
-  <data name="Validation_Required" xml:space="preserve">
-    <value>"{0}" is mandatory.</value>
-  </data>
-  <data name="Reset" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="Settings_Index_Failed" xml:space="preserve">
-    <value>Settings update was unsuccessful. Please correct the errors and try again.</value>
-  </data>
-  <data name="Team_Index_Teams" xml:space="preserve">
-    <value>Teams</value>
-  </data>
-  <data name="Account_Edit_RolesHint" xml:space="preserve">
-    <value>Administrators have access to all repositories and are allowed to do all operations with repositories, teams and users.</value>
-  </data>
-  <data name="Settings_Global_DirectoryHint" xml:space="preserve">
-    <value>All repositories are stored in this directory.</value>
-  </data>
-  <data name="Repository_AdministratorsHint" xml:space="preserve">
-    <value>Administrators have full access to the repository. They can modify repository metadata or delete the repository.</value>
-  </data>
-  <data name="Repository_AllowAnonymousHint" xml:space="preserve">
-    <value>If anonymous access is allowed, everyone can pull or clone the repository and view repository metadata. Push is available only if set in Global Settings.</value>
-  </data>
-  <data name="Repository_Create_NameFailure" xml:space="preserve">
-    <value>"Name" shouldn't contain only whitespace characters.</value>
-  </data>
-  <data name="Repository_TeamsHint" xml:space="preserve">
-    <value>Teams have access to the repository. They can clone, push or pull and view repository metadata. All users in the team can access this repository.</value>
-  </data>
-  <data name="Repository_UsersHint" xml:space="preserve">
-    <value>Users have access to the repository. They can clone, push or pull and view repository metadata.</value>
-  </data>
-  <data name="Validation_FileName" xml:space="preserve">
-    <value>"{0}" contains characters that can't be in a file or directory name.</value>
-  </data>
-  <data name="Validation_StringLength" xml:space="preserve">
-    <value>"{0}" should be shorter than {1} characters.</value>
-  </data>
-  <data name="Account_Create_AccountAlreadyExists" xml:space="preserve">
-    <value>Account with this username already exists.</value>
-  </data>
-  <data name="Account_Create_AccountInformation" xml:space="preserve">
-    <value>Account information</value>
-  </data>
-  <data name="Account_Create_ConfirmPassword" xml:space="preserve">
-    <value>Confirm Password</value>
-  </data>
-  <data name="Account_Create_Email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="Account_Create_Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Account_Create_Password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="Account_Create_Submit" xml:space="preserve">
-    <value>Create</value>
-  </data>
-  <data name="Account_Create_Surname" xml:space="preserve">
-    <value>Surname</value>
-  </data>
-  <data name="Account_Create_Title" xml:space="preserve">
-    <value>Create New Account</value>
-  </data>
-  <data name="Account_Create_Unsuccessfull" xml:space="preserve">
-    <value>Account creation was unsuccessful. Please correct the errors and try again.</value>
-  </data>
-  <data name="Account_Create_Username" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="Account_Index_Create" xml:space="preserve">
-    <value>Create new user</value>
-  </data>
-  <data name="Account_Index_Users" xml:space="preserve">
-    <value>Users</value>
-  </data>
-  <data name="Delete_ConfirmationText" xml:space="preserve">
-    <value>Do you really want to delete {0}?</value>
-  </data>
-  <data name="Account_Create_Success" xml:space="preserve">
-    <value>The user was created successfully.</value>
-  </data>
-  <data name="Repository_Tree_Download" xml:space="preserve">
-    <value>Download</value>
-  </data>
-  <data name="Settings_Global_AllowAnonymousRegistration" xml:space="preserve">
-    <value>Allow anonymous registration</value>
-  </data>
-  <data name="Settings_Global_AllowAnonymousRegistration_Hint" xml:space="preserve">
-    <value>If checkbox is unchecked, only administrators can add new users and anonymous user registration is disabled.</value>
-  </data>
-  <data name="Settings_Global_AllowUserRepositoryCreation" xml:space="preserve">
-    <value>Allow user repository creation</value>
-  </data>
-  <data name="Settings_Global_AllowUserRepositoryCreation_Hint" xml:space="preserve">
-    <value>If checkbox is unchecked, only administrators can create repositories.</value>
-  </data>
-  <data name="Delete_Back" xml:space="preserve">
-    <value>Back</value>
-  </data>
-  <data name="Delete_Confirm" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="Delete_Title" xml:space="preserve">
-    <value>Delete Confirmation</value>
-  </data>
-  <data name="Repository_Tree_PreviewNotSupported" xml:space="preserve">
-    <value>Preview of this file is not supported.</value>
-  </data>
-  <data name="Settings_Global_DefaultLanguage" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="Settings_Global_DefaultLanguage_Hint" xml:space="preserve">
-    <value>Language set by default in the application.</value>
+    <value>Nie</value>
   </data>
   <data name="Repository_Detail_Status" xml:space="preserve">
     <value>Status</value>
   </data>
-  <data name="Repository_Tree_RawDisplay" xml:space="preserve">
-    <value>Raw</value>
+  <data name="Repository_Detail_Teams" xml:space="preserve">
+    <value>Zespoły</value>
   </data>
-  <data name="Repository_Tree_Zip" xml:space="preserve">
-    <value>Download</value>
+  <data name="Repository_Detail_Title" xml:space="preserve">
+    <value>Szczegóły repozytorium</value>
   </data>
-  <data name="Repository_Commit_Details" xml:space="preserve">
-    <value>Details</value>
+  <data name="Repository_Detail_Users" xml:space="preserve">
+    <value>Użytkownicy wnoszący wkład</value>
   </data>
-  <data name="Item_NotFound_Text" xml:space="preserve">
-    <value>The item you were looking for wasn't found.</value>
+  <data name="Repository_Detail_Yes" xml:space="preserve">
+    <value>Tak</value>
   </data>
-  <data name="Confirm" xml:space="preserve">
-    <value>Confirm</value>
+  <data name="Repository_Edit_Back" xml:space="preserve">
+    <value>Wstecz</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Official Page</value>
+  <data name="Repository_Edit_CantRemoveYourself" xml:space="preserve">
+    <value>Nie możesz odebrać praw administratora samemu sobie</value>
   </data>
-  <data name="Source" xml:space="preserve">
-    <value>Github</value>
+  <data name="Repository_Edit_Fail" xml:space="preserve">
+    <value>Nie udało się zaktualizować repozytorium. Popraw błędy i spróbuj ponownie.</value>
+  </data>
+  <data name="Repository_Edit_Submit" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="Repository_Edit_Title" xml:space="preserve">
+    <value>Edytuj repozytorium</value>
+  </data>
+  <data name="Repository_Edit_UpdateSuccess" xml:space="preserve">
+    <value>Repozytorium zaktualizowane pomyślnie.</value>
+  </data>
+  <data name="Repository_Index_AdministratedRepositories" xml:space="preserve">
+    <value>Administrowane repozytoria</value>
+  </data>
+  <data name="Repository_Index_AllRepositories" xml:space="preserve">
+    <value>Wszystkie repozytoria</value>
+  </data>
+  <data name="Repository_Index_CreateNew" xml:space="preserve">
+    <value>Utwórz nowe repozytorium</value>
+  </data>
+  <data name="Repository_Index_No" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="Repository_Index_Repositories" xml:space="preserve">
+    <value>Repozytoria</value>
+  </data>
+  <data name="Repository_Index_Title" xml:space="preserve">
+    <value>Repozytoria</value>
+  </data>
+  <data name="Repository_Index_Yes" xml:space="preserve">
+    <value>Tak</value>
+  </data>
+  <data name="Repository_Layout_Browse" xml:space="preserve">
+    <value>Przeglądarka repozytorium</value>
   </data>
   <data name="Repository_Layout_Clone" xml:space="preserve">
-    <value>Clone</value>
+    <value>Klonuj</value>
   </data>
-  <data name="Repository_Clone_Success" xml:space="preserve">
-    <value>Repository was cloned successfully.</value>
+  <data name="Repository_Layout_Commits" xml:space="preserve">
+    <value>Commity</value>
   </data>
-  <data name="Repository_Clone_Title" xml:space="preserve">
-    <value>Clone Repository</value>
+  <data name="Repository_SwitchBranch" xml:space="preserve">
+    <value>Przełącz gałąź</value>
   </data>
-  <data name="Repository_Clone_Fail" xml:space="preserve">
-    <value>Repository cloning was unsuccessful. Please correct the errors and try again.</value>
+  <data name="Repository_TeamsHint" xml:space="preserve">
+    <value>Zespoły mają dostęp do repozytorium. Mogą je klonować, pobierać lub wgrywać dane oraz przeglądać metadane. Wszyscy użytkownicy należący do zespołu mają dostęp do tego repozytorium.</value>
   </data>
-  <data name="Repository_Clone_Submit" xml:space="preserve">
-    <value>Clone</value>
+  <data name="Repository_Tree_Author" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="Repository_Tree_CommitDate" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Repository_Tree_CommitMessage" xml:space="preserve">
+    <value>Wiadomość</value>
+  </data>
+  <data name="Repository_Tree_Download" xml:space="preserve">
+    <value>Pobierz</value>
+  </data>
+  <data name="Repository_Tree_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="Repository_Tree_PreviewNotSupported" xml:space="preserve">
+    <value>Podgląd pliku nie jest możliwy.</value>
+  </data>
+  <data name="Repository_Tree_RawDisplay" xml:space="preserve">
+    <value>Surowy format</value>
+  </data>
+  <data name="Repository_Tree_Title" xml:space="preserve">
+    <value>Przeglądaj repozytorium</value>
+  </data>
+  <data name="Repository_Tree_Zip" xml:space="preserve">
+    <value>Pobierz</value>
+  </data>
+  <data name="Repository_UsersHint" xml:space="preserve">
+    <value>Użytkownicy mają dostęp do repozytorium. Mogą je klonować, pobierać lub wgrywać dane oraz przeglądać metadane.</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Settings_Global_AllowAnonymousPush" xml:space="preserve">
+    <value>Włącz wgrywanie danych do anonimowych repozytoriów.</value>
+  </data>
+  <data name="Settings_Global_AllowAnonymousRegistration" xml:space="preserve">
+    <value>Włącz anonimową rejestrację.</value>
+  </data>
+  <data name="Settings_Global_AllowAnonymousRegistration_Hint" xml:space="preserve">
+    <value>Jeśli odznaczone, wyłącznie administratorzy mogą dodawać nowych użytkowników, a anonimowa rejestracja jest wyłączona.</value>
+  </data>
+  <data name="Settings_Global_AllowUserRepositoryCreation" xml:space="preserve">
+    <value>Pozwól użytkownikom na tworzenie repozytoriów</value>
+  </data>
+  <data name="Settings_Global_AllowUserRepositoryCreation_Hint" xml:space="preserve">
+    <value>Jeśli odznaczone, tylko administratorzy mogą tworzyć repozytoria.</value>
+  </data>
+  <data name="Settings_Global_DefaultLanguage" xml:space="preserve">
+    <value>Język</value>
+  </data>
+  <data name="Settings_Global_DefaultLanguage_Hint" xml:space="preserve">
+    <value>Domyślny język aplikacji.</value>
+  </data>
+  <data name="Settings_Global_DirectoryHint" xml:space="preserve">
+    <value>Repozytoria są przechowywane w tym katalogu.</value>
+  </data>
+  <data name="Settings_Global_RepositoryPath" xml:space="preserve">
+    <value>Katalog repozytoriów</value>
   </data>
   <data name="Settings_Global_SiteFooterMessage" xml:space="preserve">
-    <value>Site Footer Message</value>
+    <value>Stopka strony</value>
   </data>
   <data name="Settings_Global_SiteFooterMessage_Hint" xml:space="preserve">
-    <value>Message displayed in footer area of site pages.</value>
+    <value>Wiadomość wyświetlana w stopce.</value>
   </data>
   <data name="Settings_Global_SiteLogoUrl" xml:space="preserve">
-    <value>Site Logo URL</value>
+    <value>URL logo strony</value>
   </data>
   <data name="Settings_Global_SiteLogoUrl_Hint" xml:space="preserve">
-    <value>URL to a logo to use for the site.  Site-relative (~) paths are supported.</value>
+    <value>Adres obrazka służącego jako logo strony. Ścieżki względne (~) są obsługiwane.</value>
   </data>
   <data name="Settings_Global_SiteTitle" xml:space="preserve">
-    <value>Site Title</value>
+    <value>Tytuł strony</value>
   </data>
   <data name="Settings_Global_SiteTitle_Hint" xml:space="preserve">
-    <value>Title for this git site.</value>
+    <value>Tytuł tej strony.</value>
   </data>
-  <data name="Repository_Commit_NoMessageDeclared" xml:space="preserve">
-    <value>Not declared</value>
+  <data name="Settings_Index_Failed" xml:space="preserve">
+    <value>Nie udało się zaktualizować ustawień. Popraw błędy i spróbuj ponownie.</value>
   </data>
-  <data name="Repository_Detail_AuditPushUser" xml:space="preserve">
-    <value>Audit Pushes</value>
+  <data name="Settings_Index_Save" xml:space="preserve">
+    <value>Zapisz</value>
   </data>
-  <data name="Repository_AuditPushUserHint" xml:space="preserve">
-    <value>Record user that pushed commits to the server</value>
+  <data name="Settings_Index_Title" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="Settings_Index_UpdateSuccess" xml:space="preserve">
+    <value>Ustawienia zaktualizowane pomyślnie.</value>
+  </data>
+  <data name="Settings_RepositoryPathNotExists" xml:space="preserve">
+    <value>Wybrana ścieżka nie istnieje. Utwórz folder lub wybierz inną.</value>
+  </data>
+  <data name="Settings_RepositoryPathUnauthorized" xml:space="preserve">
+    <value>Nie masz uprawnień do zapisu w tym folderze. Wybierz inny.</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Team_Create_Back" xml:space="preserve">
+    <value>Wstecz</value>
+  </data>
+  <data name="Team_Create_Fail" xml:space="preserve">
+    <value>Utworzenie zespołu nie powiodło się. Popraw błędy i spróbuj ponownie.</value>
+  </data>
+  <data name="Team_Create_Failure" xml:space="preserve">
+    <value>Zespół o tej nazwie już istnieje - utworzenie anulowane.</value>
+  </data>
+  <data name="Team_Create_Submit" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="Team_Create_Success" xml:space="preserve">
+    <value>Pomyślnie utworzono zespół.</value>
+  </data>
+  <data name="Team_Create_TeamInformations" xml:space="preserve">
+    <value>Informacje o zespole</value>
+  </data>
+  <data name="Team_Create_Title" xml:space="preserve">
+    <value>Utwórz nowy zespół</value>
+  </data>
+  <data name="Team_Delete_Success" xml:space="preserve">
+    <value>Zespół został usunięty.</value>
+  </data>
+  <data name="Team_Detail_Back" xml:space="preserve">
+    <value>Wstecz</value>
+  </data>
+  <data name="Team_Detail_Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Team_Detail_Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Team_Detail_Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="Team_Detail_Members" xml:space="preserve">
+    <value>Członkowie</value>
+  </data>
+  <data name="Team_Detail_Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="Team_Detail_Repositories" xml:space="preserve">
+    <value>Repozytoria</value>
+  </data>
+  <data name="Team_Detail_Title" xml:space="preserve">
+    <value>Szczegóły zespołu</value>
+  </data>
+  <data name="Team_Edit_Back" xml:space="preserve">
+    <value>Wstecz</value>
+  </data>
+  <data name="Team_Edit_Failure" xml:space="preserve">
+    <value>Nie udało się zaktualizować zespołu. Popraw błędy i spróbuj ponownie.</value>
+  </data>
+  <data name="Team_Edit_Submit" xml:space="preserve">
+    <value>Aktualizuj</value>
+  </data>
+  <data name="Team_Edit_Title" xml:space="preserve">
+    <value>Edytuj zespół</value>
+  </data>
+  <data name="Team_Edit_UpdateSuccess" xml:space="preserve">
+    <value>Pomyślnie zaktualizowano zespół.</value>
+  </data>
+  <data name="Team_Index_CreateNew" xml:space="preserve">
+    <value>Utwórz nowy zespół</value>
+  </data>
+  <data name="Team_Index_Teams" xml:space="preserve">
+    <value>Zespoły</value>
+  </data>
+  <data name="Team_Index_Title" xml:space="preserve">
+    <value>Zespoły</value>
+  </data>
+  <data name="Validation_Compare" xml:space="preserve">
+    <value>"{0}" i "{1}" muszą mieć takie same wartości.</value>
+  </data>
+  <data name="Validation_Email" xml:space="preserve">
+    <value>"{0}" nie jest poprawnym adresem e-mail.</value>
+  </data>
+  <data name="Validation_FileName" xml:space="preserve">
+    <value>"{0}" zawiera znaki, których nie może być w nazwie katalogu lub pliku.</value>
   </data>
   <data name="Validation_FileName_Regex" xml:space="preserve">
-    <value>Only characters, numbers, minus and underscore are allowed for "{0}".</value>
+    <value>Tylko litery, cyfry, minus i podkreślenie są dozwolone w "{0}".</value>
   </data>
-  <data name="Repository_History_Title" xml:space="preserve">
-    <value>History</value>
+  <data name="Validation_Required" xml:space="preserve">
+    <value>"{0}" jest wymagane.</value>
   </data>
-  <data name="Repository_Tree_History" xml:space="preserve">
-    <value>History</value>
-  </data>
-  <data name="Repository_Commit_AuthorAvatar" xml:space="preserve">
-    <value>Avatar</value>
-  </data>
-  <data name="Settings_Global_IsCommitAuthorAvatarVisible" xml:space="preserve">
-    <value>Show commit author avatar</value>
-  </data>
-  <data name="Repository_Blame_Title" xml:space="preserve">
-    <value>Blame</value>
-  </data>
-  <data name="Repository_Tree_Blame" xml:space="preserve">
-    <value>Blame</value>
-  </data>
-  <data name="Repository_Tree_Blob" xml:space="preserve">
-    <value>Blob</value>
-  </data>
-  <data name="Email_PasswordReset_Body" xml:space="preserve">
-    <value>&lt;p&gt;A request has been received to reset your password. 
-                           If you did not initiate the request, then please ignore this email.&lt;/p&gt;
-                           &lt;p&gt;Please click the following link to reset your password:&lt;/p&gt;</value>
-  </data>
-  <data name="Email_PasswordReset_Title" xml:space="preserve">
-    <value>Bonobo - Password Reset Request</value>
-  </data>
-  <data name="Home_ForgotPassword_EmailError" xml:space="preserve">
-    <value>Unable to send email. Validate SMTP settings.</value>
-  </data>
-  <data name="Home_ForgotPassword_EmailSuccess" xml:space="preserve">
-    <value>Email sent</value>
-  </data>
-  <data name="Home_ForgotPassword_Failed" xml:space="preserve">
-    <value>Forgotten Password Failed. Please correct errors and try again.</value>
-  </data>
-  <data name="Home_ForgotPassword_ForgotPassword" xml:space="preserve">
-    <value>Forgot Password</value>
-  </data>
-  <data name="Home_ForgotPassword_Title" xml:space="preserve">
-    <value>Forgotten Password</value>
-  </data>
-  <data name="Home_ForgotPassword_Username" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="Home_ForgotPassword_UserNameFailure" xml:space="preserve">
-    <value>Could not find username</value>
-  </data>
-  <data name="Home_LogOn_ForgotPassword" xml:space="preserve">
-    <value>Forgot Password?</value>
-  </data>
-  <data name="Home_ResetPassword_ConfirmPassword" xml:space="preserve">
-    <value>Confirm Password</value>
-  </data>
-  <data name="Home_ResetPassword_Failed" xml:space="preserve">
-    <value>Unable to reset password</value>
-  </data>
-  <data name="Home_ResetPassword_Password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="Home_ResetPassword_ResetPassword" xml:space="preserve">
-    <value>Reset Password</value>
-  </data>
-  <data name="Home_ResetPassword_Success" xml:space="preserve">
-    <value>Password reset</value>
-  </data>
-  <data name="Home_ResetPassword_Title" xml:space="preserve">
-    <value>Reset Password</value>
-  </data>
-  <data name="Home_ResetPassword_Username" xml:space="preserve">
-    <value>Username</value>
+  <data name="Validation_StringLength" xml:space="preserve">
+    <value>"{0}" powinno być krótsze niż {1} znaków.</value>
   </data>
 </root>

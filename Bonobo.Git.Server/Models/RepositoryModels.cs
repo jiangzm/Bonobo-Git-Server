@@ -78,6 +78,7 @@ namespace Bonobo.Git.Server.Models
         public string TreeName { get; set; }
         public bool IsImage { get; set; }
         public bool IsText { get; set; }
+        public bool IsMarkdown { get; set; }
         public string Path { get; set; }
         public byte[] Data { get; set; }
         public string Text { get; set; }
@@ -90,6 +91,7 @@ namespace Bonobo.Git.Server.Models
         public string Name { get; set; }
         public string Branch { get; set; }
         public string Path { get; set; }
+        public string Readme { get; set; }
         public IEnumerable<RepositoryTreeDetailModel> Files { get; set; }
     }
 
@@ -142,6 +144,9 @@ namespace Bonobo.Git.Server.Models
         [Display(ResourceType = typeof(Resources), Name = "Repository_Commit_AuthorEmail")]
         public string AuthorEmail { get; set; }
 
+        [Display(ResourceType = typeof(Resources), Name = "Repository_Commit_AuthorAvatar")]
+        public string AuthorAvatar { get; set; }
+
         [Display(ResourceType = typeof(Resources), Name = "Repository_Commit_Date")]
         public DateTime Date { get; set; }
 
@@ -173,5 +178,18 @@ namespace Bonobo.Git.Server.Models
 
         public IEnumerable<RepositoryCommitNoteModel> Notes { get; set; }
 
+    }
+
+    public class RepositoryBlameModel
+    {
+        public string Name { get; set; }
+        public string Path { get; set; }
+        public IEnumerable<RepositoryBlameHunkModel> Hunks { get; set; }
+    }
+
+    public class RepositoryBlameHunkModel
+    {
+        public RepositoryCommitModel Commit { get; set; }
+        public string[] Lines { get; set; }
     }
 }
