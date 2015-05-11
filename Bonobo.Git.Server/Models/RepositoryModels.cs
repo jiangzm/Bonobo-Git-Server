@@ -10,6 +10,7 @@ namespace Bonobo.Git.Server.Models
     public class RepositoryModel
     {
         public string Name { get; set; }
+        public string Group { get; set; }
         public string Description { get; set; }
         public bool AnonymousAccess { get; set; }
         public string[] Users { get; set; }
@@ -20,13 +21,18 @@ namespace Bonobo.Git.Server.Models
 
     public class RepositoryDetailModel
     {
-        [RegularExpression("[a-zA-Z0-9-_]+", ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "Validation_FileName_Regex")]
+        [RegularExpression(@"([\w\.-])*([\w])$", ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "Validation_FileName_Regex")]
         [FileName(ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "Validation_FileName")]
         [StringLength(50, ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "Validation_StringLength")]
         [Display(ResourceType = typeof(Resources), Name = "Repository_Detail_Name")]
         public string Name { get; set; }
 
+        [Display(ResourceType = typeof(Resources), Name = "Repository_Detail_Group")]
+        [StringLength(255, ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "Validation_StringLength")]
+        public string Group { get; set; }
+
         [Display(ResourceType = typeof(Resources), Name = "Repository_Detail_Description")]
+        [StringLength(255, ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "Validation_StringLength")]
         public string Description { get; set; }
 
         [Display(ResourceType = typeof(Resources), Name = "Repository_Detail_Users")]
@@ -103,6 +109,7 @@ namespace Bonobo.Git.Server.Models
 
     public class RepositoryCommitChangeModel
     {
+        public string ChangeId { get; set; }
         public string Name { get; set; }
         public string Path { get; set; }
         public ChangeKind Status { get; set; }
@@ -161,7 +168,6 @@ namespace Bonobo.Git.Server.Models
                 {
                     return Resources.Repository_Commit_NoMessageDeclared;
                 }
-
                 else
                 {
                     return _message;
@@ -173,17 +179,22 @@ namespace Bonobo.Git.Server.Models
             }
         }
 
+        public string MessageShort { get; set; }
+
+        public string TagName { get; set; }
+
         [Display(ResourceType = typeof(Resources), Name = "Repository_Commit_Changes")]
         public IEnumerable<RepositoryCommitChangeModel> Changes { get; set; }
 
         public IEnumerable<RepositoryCommitNoteModel> Notes { get; set; }
-
     }
 
     public class RepositoryBlameModel
     {
         public string Name { get; set; }
         public string Path { get; set; }
+        public long FileSize { get; set; }
+        public long LineCount { get; set; }
         public IEnumerable<RepositoryBlameHunkModel> Hunks { get; set; }
     }
 

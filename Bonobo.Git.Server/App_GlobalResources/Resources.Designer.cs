@@ -1377,6 +1377,15 @@ namespace Bonobo.Git.Server.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Group.
+        /// </summary>
+        public static string Repository_Detail_Group {
+            get {
+                return ResourceManager.GetString("Repository_Detail_Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Admin.
         /// </summary>
         public static string Repository_Detail_IsCurrentUserAdmin {
@@ -1386,11 +1395,20 @@ namespace Bonobo.Git.Server.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Url.
+        ///   Looks up a localized string similar to General Url.
         /// </summary>
         public static string Repository_Detail_Location {
             get {
                 return ResourceManager.GetString("Repository_Detail_Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal URL.
+        /// </summary>
+        public static string Repository_Detail_Location_Personal {
+            get {
+                return ResourceManager.GetString("Repository_Detail_Location_Personal", resourceCulture);
             }
         }
         
@@ -1562,6 +1580,15 @@ namespace Bonobo.Git.Server.App_GlobalResources {
         public static string Repository_Index_Repositories {
             get {
                 return ResourceManager.GetString("Repository_Index_Repositories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sort Group.
+        /// </summary>
+        public static string Repository_Index_SortGroup {
+            get {
+                return ResourceManager.GetString("Repository_Index_SortGroup", resourceCulture);
             }
         }
         
@@ -2205,7 +2232,7 @@ namespace Bonobo.Git.Server.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Only characters, numbers, minus and underscore are allowed for &quot;{0}&quot;..
+        ///   Looks up a localized string similar to Only characters, numbers, dots, minus and underscore are allowed for &quot;{0}&quot;..
         /// </summary>
         public static string Validation_FileName_Regex {
             get {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="~/favicon.ico?v=2" type="image/x-icon" />
-    <title>@ViewBag.Title :: Bonobo Git Server</title>
+    <title>@ViewBag.Title :: @UserConfiguration.Current.GetSiteTitle()</title>
     @Styles.Render("~/Content/bundled.css")
     @if (UserConfiguration.Current.HasCustomSiteLogo)
     {
@@ -68,9 +68,9 @@
                 @if (UserConfiguration.Current.HasSiteFooterMessage)
                 {
                     @UserConfiguration.Current.SiteFooterMessage
-                    @Html.Raw("&middot;")
+                    @:&middot;
                 }
-                Bonobo Git Server (@Html.AssemblyVersion()) &copy; 2014 <a href="http://www.chodounsky.net">Jakub Chodounský</a>
+                Bonobo Git Server (@Html.AssemblyVersion()) &copy; 2015 <a href="http://www.chodounsky.net">Jakub Chodounský</a>
                 &middot; <a href="http://bonobogitserver.com/">@Resources.Home</a> 
                 &middot; <a href="https://github.com/jakubgarfield/Bonobo-Git-Server">@Resources.Source</a>
             </p>

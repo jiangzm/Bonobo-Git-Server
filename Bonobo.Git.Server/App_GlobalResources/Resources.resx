@@ -403,7 +403,8 @@
     <value>Admin</value>
   </data>
   <data name="Repository_Detail_Location" xml:space="preserve">
-    <value>Url</value>
+    <value>General Url</value>
+    <comment>Example: http://localhost/Bonobo.Git.Server/test.git</comment>
   </data>
   <data name="Repository_Detail_Name" xml:space="preserve">
     <value>Name</value>
@@ -766,7 +767,7 @@
     <value>Record user that pushed commits to the server</value>
   </data>
   <data name="Validation_FileName_Regex" xml:space="preserve">
-    <value>Only characters, numbers, minus and underscore are allowed for "{0}".</value>
+    <value>Only characters, numbers, dots, minus and underscore are allowed for "{0}".</value>
   </data>
   <data name="Repository_History_Title" xml:space="preserve">
     <value>History</value>
@@ -841,5 +842,15 @@
   </data>
   <data name="Home_ResetPassword_Username" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="Repository_Detail_Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="Repository_Index_SortGroup" xml:space="preserve">
+    <value>Sort Group</value>
+  </data>
+  <data name="Repository_Detail_Location_Personal" xml:space="preserve">
+    <value>Personal URL</value>
+    <comment>Example: http://admin@localhost/Bonobo.Git.Server/test.git</comment>
   </data>
 </root>

@@ -4,6 +4,47 @@ description: Tracks changes and bug fixes between different versions of Bonobo G
 tags: [Changelog, Changes, Bug Fixes, Features]
 ---
 
+## Version 3.6.0
+
+**2 Apr 2015
+
+### Features
+
+* new commit message format - alexkuznetsov
+* french translation - glacasa
+* show personalised URL - sansys
+* added support for grouping repositories - lennardf1989
+* minimize group - sansys
+* link to commited changes - spoiledtechie
+
+### Bug fixes
+
+* fixed history and blame page - igoryk-zp
+* fixed back link - igoryk-zp
+* fixed russian translation - sansys
+
+## Version 3.5.0
+
+**19 Feb 2015**
+
+### Features
+
+* Remember me checkbox - whosa
+* zh-HK, zh-CHT translation and improved encoding - lkho
+* Improved commit layout - whosa
+* Repository allows dot and underscore in the name - mbedded
+* Convert tabs into spaces in blob and commit view - jafp
+* Enable password reset - kengibous
+* Add tags to commit view - heringeidaniel
+
+### Bug fixes
+
+* Fix #207 Remove the home variable from process info before adding it
+* Rescuing from IdentityNotMap Exception for Windows Authentication - jshepler
+* Fix to allow email addresses as users names, Issue #163 #158 - kengibous
+* zh-TW improved - tooto
+
+
 ## Version 3.4.3
 
 **14 Dec 2014**

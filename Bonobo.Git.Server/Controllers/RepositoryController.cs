@@ -30,11 +30,15 @@ namespace Bonobo.Git.Server.Controllers
         [Dependency]
         public IRepositoryPermissionService RepositoryPermissionService { get; set; }
 
-
         [WebAuthorize]
-        public ActionResult Index()
+        public ActionResult Index(string sortGroup = null)
         {
-            return View(GetIndexModel());
+            var list = GetIndexModel()
+                    .GroupBy(x => x.Group)
+                    .OrderBy(x => x.Key, string.IsNullOrEmpty(sortGroup) || sortGroup.Equals("ASC"))
+                    .ToDictionary(x => x.Key ?? string.Empty, x => x.ToArray());
+
+            return View(list);
         }
 
         [WebAuthorizeRepository(RequiresRepositoryAdministrator = true)]
@@ -282,6 +286,7 @@ namespace Bonobo.Git.Server.Controllers
         public ActionResult Blame(string id, string encodedName, string encodedPath)
         {
             ViewBag.ID = id;
+            ViewBag.ShowShortMessageOnly = true;
             if (!String.IsNullOrEmpty(id))
             {
                 using (var browser = new RepositoryBrowser(Path.Combine(UserConfiguration.Current.Repositories, id)))
@@ -361,6 +366,7 @@ namespace Bonobo.Git.Server.Controllers
         public ActionResult Commits(string id, string encodedName)
         {
             ViewBag.ID = id;
+            ViewBag.ShowShortMessageOnly = true;
             if (!String.IsNullOrEmpty(id))
             {
                 using (var browser = new RepositoryBrowser(Path.Combine(UserConfiguration.Current.Repositories, id)))
@@ -380,6 +386,7 @@ namespace Bonobo.Git.Server.Controllers
         public ActionResult Commit(string id, string commit)
         {
             ViewBag.ID = id;
+            ViewBag.ShowShortMessageOnly = false;
             if (!String.IsNullOrEmpty(id))
             {
                 using (var browser = new RepositoryBrowser(Path.Combine(UserConfiguration.Current.Repositories, id)))
@@ -469,6 +476,7 @@ namespace Bonobo.Git.Server.Controllers
         public ActionResult History(string id, string encodedPath, string encodedName)
         {
             ViewBag.ID = id;
+            ViewBag.ShowShortMessageOnly = true;
             if (!String.IsNullOrEmpty(id))
             {
                 using (var browser = new RepositoryBrowser(Path.Combine(UserConfiguration.Current.Repositories, id)))
@@ -523,6 +531,7 @@ namespace Bonobo.Git.Server.Controllers
             return model == null ? null : new RepositoryDetailModel
             {
                 Name = model.Name,
+                Group = model.Group,
                 Description = model.Description,
                 Users = model.Users,
                 Administrators = model.Administrators,
@@ -548,6 +557,7 @@ namespace Bonobo.Git.Server.Controllers
             return model == null ? null : new RepositoryModel
             {
                 Name = model.Name,
+                Group = model.Group,
                 Description = model.Description,
                 Users = model.Users,
                 Administrators = model.Administrators,

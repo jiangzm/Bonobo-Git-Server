@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Bonobo.Git.Server.Models;
 using Bonobo.Git.Server.Extensions;
 using LibGit2Sharp;
 using System.IO;
+using Bonobo.Git.Server.Helpers;
 
 namespace Bonobo.Git.Server
 {
@@ -85,7 +87,7 @@ namespace Bonobo.Git.Server
 
             return includeDetails ? GetTreeModelsWithDetails(commit, tree, branchName) : GetTreeModels(tree, branchName);
         }
-               
+
         public RepositoryTreeDetailModel BrowseBlob(string name, string path, out string referenceName)
         {
             if (path == null)
@@ -127,6 +129,15 @@ namespace Bonobo.Git.Server
             model.Encoding = FileDisplayHandler.GetEncoding(model.Data);
             model.IsText = model.Text != null;
             model.IsMarkdown = model.IsText && Path.GetExtension(path).Equals(".md", StringComparison.OrdinalIgnoreCase);
+
+            // try to render as text file if the extension matches
+            if (FileDisplayHandler.GetBrush(path) != "plain")
+            {
+                model.IsText = true;
+                model.Encoding = Encoding.Default;
+                model.Text = new StreamReader(new MemoryStream(model.Data), model.Encoding, true).ReadToEnd();
+            }
+
             if (model.IsText)
             {
                 model.TextBrush = FileDisplayHandler.GetBrush(path);
@@ -141,12 +152,13 @@ namespace Bonobo.Git.Server
 
         public RepositoryBlameModel GetBlame(string name, string path, out string referenceName)
         {
-            var commit = GetCommitByName(name, out referenceName);
-            if (commit == null || commit[path] == null || commit[path].TargetType != TreeEntryTargetType.Blob || (commit[path].Target as Blob).IsBinary)
+            var modelBlob = BrowseBlob(name, path, out referenceName);
+            if (modelBlob == null || !modelBlob.IsText)
             {
                 return null;
             }
-            string[] lines = (commit[path].Target as Blob).GetContentText().Split(Environment.NewLine.ToCharArray());
+            var commit = GetCommitByName(name, out referenceName);
+            string[] lines = modelBlob.Text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
             List<RepositoryBlameHunkModel> hunks = new List<RepositoryBlameHunkModel>();
             foreach (var hunk in _repository.Blame(path, new BlameOptions { StartingAt = commit }))
             {
@@ -160,7 +172,9 @@ namespace Bonobo.Git.Server
             {
                 Name = commit[path].Name,
                 Path = path,
-                Hunks = hunks
+                Hunks = hunks,
+                FileSize = modelBlob.Data.LongLength,
+                LineCount = lines.LongLength
             };
         }
 
@@ -221,11 +235,16 @@ namespace Bonobo.Git.Server
 
         private RepositoryTreeDetailModel CreateRepositoryDetailModel(TreeEntry entry, Commit ancestor, string treeName)
         {
+            var maximumMessageLength = 50; //FIXME Propbably in appSettings?
+            var originMessage = ancestor != null ? ancestor.Message : String.Empty;
+            var commitMessage = !String.IsNullOrEmpty(originMessage)
+                ? RepositoryCommitModelHelpers.MakeCommitMessage(originMessage, maximumMessageLength).ShortTitle : String.Empty;
+
             return new RepositoryTreeDetailModel
             {
                 Name = entry.Name,
                 CommitDate = ancestor != null ? ancestor.Author.When.LocalDateTime : default(DateTime?),
-                CommitMessage = ancestor != null ? ancestor.MessageShort : String.Empty,
+                CommitMessage = commitMessage,
                 Author = ancestor != null ? ancestor.Author.Name : String.Empty,
                 IsTree = entry.TargetType == TreeEntryTargetType.Tree,
                 IsLink = entry.TargetType == TreeEntryTargetType.GitLink,
@@ -264,6 +283,14 @@ namespace Bonobo.Git.Server
 
         private RepositoryCommitModel ToModel(Commit commit, bool withDiff = false)
         {
+            string tagsString = string.Empty;
+            var tags = _repository.Tags.Where(o => o.Target.Sha == commit.Sha);
+
+            if (tags != null && tags.Any())
+                tagsString = tags.Select(o => o.Name).Aggregate((o, p) => o + " " + p);
+
+            var shortMessageDetails = RepositoryCommitModelHelpers.MakeCommitMessage(commit.Message, 30);
+
             var model = new RepositoryCommitModel
             {
                 Author = commit.Author.Name,
@@ -271,9 +298,11 @@ namespace Bonobo.Git.Server
                 AuthorAvatar = commit.Author.GetAvatar(),
                 Date = commit.Author.When.LocalDateTime,
                 ID = commit.Sha,
-                Message = commit.Message,
+                Message = shortMessageDetails.ShortTitle,
+                MessageShort = shortMessageDetails.ExtraTitle,
                 TreeID = commit.Tree.Sha,
                 Parents = commit.Parents.Select(i => i.Sha).ToArray(),
+                TagName = tagsString,
                 Notes = (from n in commit.Notes select new RepositoryCommitNoteModel(n.Message, n.Namespace)).ToList(),
             };
 
@@ -290,11 +319,13 @@ namespace Bonobo.Git.Server
                 var patch = patches[i.Path];
                 return new RepositoryCommitChangeModel
                 {
+                    ChangeId = i.Oid.Sha,
                     Path = i.Path.Replace('\\', '/'),
                     Status = i.Status,
                     LinesAdded = patch.LinesAdded,
                     LinesDeleted = patch.LinesDeleted,
                     Patch = patch.Patch,
+                     
                 };
             });
 

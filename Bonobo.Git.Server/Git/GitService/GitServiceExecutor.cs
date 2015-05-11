@@ -51,17 +51,29 @@ namespace Bonobo.Git.Server.Git.GitService
                 WorkingDirectory = Path.GetDirectoryName(repositoriesDirPath),
             };
 
-            // Set the HOME environment so that Git can find the config file.
-            info.EnvironmentVariables.Add("HOME", gitHomePath);
+            SetHomePath(info);
 
             using (var process = Process.Start(info))
             {
                 inStream.CopyTo(process.StandardInput.BaseStream);
-                process.StandardInput.Write('\0');
+                if (options.endStreamWithClose) {
+                    process.StandardInput.Close();
+                } else {
+                    process.StandardInput.Write('\0');
+                }
 
                 process.StandardOutput.BaseStream.CopyTo(outStream);
                 process.WaitForExit();
             }
+        }
+
+        private void SetHomePath(ProcessStartInfo info)
+        {
+            if (info.EnvironmentVariables.ContainsKey("HOME"))
+            {
+                info.EnvironmentVariables.Remove("HOME");
+            }
+            info.EnvironmentVariables.Add("HOME", gitHomePath);
         }
     }
 }
